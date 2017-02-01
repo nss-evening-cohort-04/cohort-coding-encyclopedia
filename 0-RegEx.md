@@ -29,18 +29,23 @@ answer:
 answer:
 
 7. Provide a regex that matches `List<int> my_List = new List<int>();` and captures the variable name.
+
 answer:
 
 8. Provide two regeesx that matches `Billy Jean` but not `billy jean`.
+
 answer:
 
 9. Provide two regexes that matches `NSS Evening Cohort 3` and captures "Cohort 3".
+
 answer:
 
 10. Provide a regex that matches emails of the forms `first.last@example.com` and `something99@history.com`. Allow for numbers in the domain name as well as the email prefix. Capture the domain name.
+
 answer:
 
 11. Provide a regex (as if for a password checker), that enforces a password to have at least one symbol and one number.
+
 answer:
 
 12. Provide a regex that matches emails from the domains `.com`, `.org`, `.net`, `.io` and `.ly` but not `.biz` and `.com.uk`. This regex should capture the end result. (use #10 as a starting point).
