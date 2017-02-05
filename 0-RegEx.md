@@ -22,6 +22,8 @@ Provide three regexes that matches `yes yes yes` but not `no no no`
 answer:  \w\w\w\s\w\w\w\s\w\w\w
     OR:  \w{3}\s\w{3}\s\w{3}
 
+    //  \w{3} three letters long
+
 ```
 
 Provide a regex that matches valid phone numbers with the forms `678-123-1122` and `(678) 
@@ -32,7 +34,12 @@ phone numbers.
 
 ```c#
 answer:  .?(\d\d\d).*(\d\d\d).(\d\d\d\d)
-    OR:  .?(?:\d{3}.*(?:\d{3}).(?:\d{4})  
+    OR:  .?(?:\d{3}.*(?:\d{3}).(?:\d{4}) 
+
+    //  .? zero or one of anything (in case user puts parenthesis)
+    //  .* zero or any amount of everything (in case user puts spaces or other characters)
+    //  . one of anything (in case user puts any character) 
+    //  \d{3} set of 3 numbers 
 
 ```
 
@@ -47,7 +54,7 @@ answer: http\w?:\/\/(\w{3}\.|)(\w*|.?)(\.com)
 
 //This will capture "http//" or "https//"
 //This will capture "www." or blank, and nothing else(like "msdn.") 
-//This will capture any length of word following line 33
+//This will capture any length of word
 //This will capture ending ".com" only
 ```
 
@@ -56,6 +63,7 @@ Provide a regex that matches dates with the format: `Wed Aug 11, 2013`.
 ```c#
 answer: (?<DotW>\w{3})\w*\s(?<Month>\w{3})\w*\s(?<Day>\d*),\s(?<Year>\d{4})
 
+// (?<nameOfGroup>\w{3})
 //Even if the user spells out day of the week and month, will capture only the first three 
 
 characters 
@@ -69,6 +77,9 @@ extract Day, Month and Year.
 ```c#
 answer: (?<M>\d\d)\/(?<D>\d\d)\/(?<Y>\d{4})
 
+//  hand way to remember \/: b\ackslash vs f/orwardslash
+//  \ in front of /, <, ., :, etc... matches character following it
+
 ```
 
 Provide a regex that matches `function returnOne() {return 1;}` and captures the value 
@@ -80,6 +91,8 @@ answer: function\s+\w+\(\)(?:|\s+|\s+\n)\{(?:\s+\w+\s+|\w+\s+)(?<returnValue>\w+
 
 +\}|\n\})
 
+//  | "or" operator  
+// (?:\w) capture group but don't name it
 //will capture the return value no matter the spacing/tabbing/cartridge return
 
 ```
