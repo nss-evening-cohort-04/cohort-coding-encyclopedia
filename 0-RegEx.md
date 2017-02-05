@@ -77,7 +77,7 @@ extract Day, Month and Year.
 ```c#
 answer: (?<M>\d\d)\/(?<D>\d\d)\/(?<Y>\d{4})
 
-//  hand way to remember \/: b\ackslash vs f/orwardslash
+//  handy way to remember \/: b\ackslash vs f/orwardslash
 //  \ in front of /, <, ., :, etc... matches character following it
 
 ```
@@ -93,7 +93,7 @@ answer: function\s+\w+\(\)(?:|\s+|\s+\n)\{(?:\s+\w+\s+|\w+\s+)(?<returnValue>\w+
 
 //  | "or" operator  
 // (?:\w) capture group but don't name it
-//will capture the return value no matter the spacing/tabbing/cartridge return
+// Will capture the return value no matter the spacing/tabbing/cartridge return
 
 ```
 
@@ -111,14 +111,21 @@ answer: \w+\<\w+\>\s+(?<varName>\w+)\s*=\s*new\s*\w+\<\w+\>\(\);
 Provide two regeesx that matches `Billy Jean` but not `billy jean`.
 
 ```c#
-answer:
+answer: [A-Z]\w+\s+[A-Z]\w+\s+
+    OR: (?<firstName>[A-Z]\w+)\s+(?<lastName>[A-Z]\w+)\s+
+    OR: (?<firstName>[A-Z]\w{1,9})(?:\w+|)\s+(?<lastName>[A-Z]\w{1,9})(?:\w+|)\s+
+
+//  Matches any name starting with a capital letter
+//  Second answer: captures the firstName and lastName
+//  Third answer: captures first and last, but no more than 10 characters each
 
 ```
 
-Provide two regexes that matches `NSS Evening Cohort 3` and captures "Cohort 3".
+Provide two regexes that matches `NSS Evening Cohort 4` and captures "Cohort 4".
 
 ```c#
-answer:
+answer: NSS\sEvening\s(?<cohortName>Cohort\s\d*)
+    OR: [A-Z]{3}\s[A-Z]\w+\s(?<cohortName>[A-Z]\w+\s\d*)
 
 ```
 
@@ -129,7 +136,9 @@ Provide a regex that matches emails of the forms `first.last@example.com` and
 Capture the domain name.
 
 ```c#
-answer:
+answer:  (\w+|\w+.\w+)@(?<domainName>\w+\.com)
+
+//  Will match any typical local-part of email and then capture domain name
 
 ```
 
