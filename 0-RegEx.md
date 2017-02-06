@@ -93,7 +93,7 @@ answer: function\s+\w+\(\)(?:|\s+|\s+\n)\{(?:\s+\w+\s+|\w+\s+)(?<returnValue>\w+
 
 //  | "or" operator  
 // (?:\w) capture group but don't name it
-// Will capture the return value no matter the spacing/tabbing/cartridge return
+// Will capture the return value no matter the spacing/tabbing/carriage return
 
 ```
 
