@@ -1,6 +1,6 @@
 # SQL Music History
 
-Using your Music History ERD, use SQL to create your database for Music History using SQL lite or using Entity Framework in a .NET Application.
+Using your Music History ERD as a basis, create your database using Entity Framework in a .NET Application.
 
 
 ## Steps
