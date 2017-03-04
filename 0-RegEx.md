@@ -101,7 +101,7 @@ answer:
 
 ```
 
-Provide a regex that matches the numbered exercises from this challenge.
+Provide a regex that matches the exercises' answer box from this challenge.
 
 ```c#
 answer:
