@@ -127,9 +127,9 @@ answer: (\w*(?:\d)\w*(?:\W)\w*)|(\w*(?:\W)\w*(?:\d)\w*)
 12. Provide a regex that matches emails from the domains `.com`, `.org`, `.net`, `.io` and `.ly` but not `.biz` and `.com.uk`. This regex should capture the end result. (use #10 as a starting point).
 
 ```c#
-answer: (\w+|\w+.\w+)@(?<domainName>\w+(\.com|\.org|\.net|\.io|\.ly))
+answer: (\w+|\w+.\w+)@(?<domainName>\w+\.(com|org|net|io|ly))\n
 
-// Not completely happy with this. Will match emails ending in ".com.uk", but doesn't capture the ".uk".
+// \n matches a line-feed (newline) character and seemed to work for not matching ".uk".
 
 ```
 
