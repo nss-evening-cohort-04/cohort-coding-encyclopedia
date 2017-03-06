@@ -16,7 +16,7 @@ It's recommended that the student uses https://regex101.com/ when attempting to 
 answer:  \w\w\w\s\w\w\w\s\w\w\w
     OR:  \w{3}\s\w{3}\s\w{3}
 
-    //  \w{3} three letters long
+<!-- \w{3} three letters long -->
 
 ```
 
@@ -26,10 +26,10 @@ answer:  \w\w\w\s\w\w\w\s\w\w\w
 answer:  .?(\d\d\d).*(\d\d\d).(\d\d\d\d)
     OR:  .?(?:\d{3}.*(?:\d{3}).(?:\d{4}) 
 
-    //  .? zero or one of anything (in case user puts parenthesis)
-    //  .* zero or any amount of everything (in case user puts spaces or other characters)
-    //  . one of anything (in case user puts any character) 
-    //  \d{3} set of 3 numbers 
+<!-- .? zero or one of anything (in case user puts parenthesis)
+    .* zero or any amount of everything (in case user puts spaces or other characters)
+    . one of anything (in case user puts any character) 
+    \d{3} set of 3 numbers -->
 
 ```
 
@@ -38,10 +38,10 @@ answer:  .?(\d\d\d).*(\d\d\d).(\d\d\d\d)
 ```c#
 answer: http\w?:\/\/(\w{3}\.|)(\w*|.?)(\.com)
 
-//This will capture "http//" or "https//"
-//This will capture "www." or blank, and nothing else(like "msdn.") 
-//This will capture any length of word
-//This will capture ending ".com" only
+<!-- This will capture "http//" or "https//"
+    This will capture "www." or blank, and nothing else(like "msdn.") 
+    This will capture any length of word
+    This will capture ending ".com" only -->
 
 ```
 
@@ -50,8 +50,8 @@ answer: http\w?:\/\/(\w{3}\.|)(\w*|.?)(\.com)
 ```c#
 answer: (?<DotW>\w{3})\w*\s(?<Month>\w{3})\w*\s(?<Day>\d*),\s(?<Year>\d{4})
 
-// (?<nameOfGroup>\w{3})
-//Even if the user spells out day of the week and month, will capture only the first three characters 
+<!-- (?<nameOfGroup>\w{3})
+    Even if the user spells out day of the week and month, will capture only the first three characters  -->
 
 ```
 
@@ -60,8 +60,8 @@ answer: (?<DotW>\w{3})\w*\s(?<Month>\w{3})\w*\s(?<Day>\d*),\s(?<Year>\d{4})
 ```c#
 answer: (?<M>\d\d)\/(?<D>\d\d)\/(?<Y>\d{4})
 
-//  handy way to remember \/: b\ackslash vs f/orwardslash
-//  \ in front of /, <, ., :, etc... matches character following it
+<!-- handy way to remember \/: b\ackslash vs f/orwardslash
+//  \ in front of /, <, ., :, etc... matches character following it -->
 
 ```
 
@@ -70,9 +70,9 @@ answer: (?<M>\d\d)\/(?<D>\d\d)\/(?<Y>\d{4})
 ```c#
 answer: function\s+\w+\(\)(?:|\s+|\s+\n)\{(?:\s+\w+\s+|\w+\s+)(?<returnValue>\w+)\;(?:\}|\s+\}|\n\})
 
-//  | "or" operand  
-// (?:\w) capture group but doesn't name it
-// Will capture the return value no matter the spacing/tabbing/carriage return(\r)/new line(\n)
+<!-- | "or" operand  
+    (?:\w) capture group but doesn't name it
+    Will capture the return value no matter the spacing/tabbing/carriage return(\r)/new line(\n) -->
 
 ```
 
@@ -81,7 +81,7 @@ answer: function\s+\w+\(\)(?:|\s+|\s+\n)\{(?:\s+\w+\s+|\w+\s+)(?<returnValue>\w+
 ```c#
 answer: \w+\<\w+\>\s+(?<varName>\w+)\s*=\s*new\s*\w+\<\w+\>\(\);
 
-// \s* will accomodate some variation in spacing
+<!-- \s* will accomodate some variation in spacing -->
 
 ```
 
@@ -92,9 +92,9 @@ answer: [A-Z]\w+\s+[A-Z]\w+
     OR: (?<firstName>[A-Z]\w+)\s+(?<lastName>[A-Z]\w+)
     OR: (?<firstName>[A-Z]\w{1,9})(?:\w+|)\s+(?<lastName>[A-Z]\w{1,9})(?:\w+|)
 
-//  Matches any name starting with a capital letter
-//  Second answer: captures the firstName and lastName
-//  Third answer: captures first and last, but no more than 10 characters each
+<!-- Matches any name starting with a capital letter
+    Second answer: captures the firstName and lastName
+    Third answer: captures first and last, but no more than 10 characters each -->
 
 ```
 
@@ -111,7 +111,7 @@ answer: NSS\sEvening\s(?<cohortName>Cohort\s\d*)
 ```c#
 answer:  (\w+|\w+.\w+)@(?<domainName>\w+\.com)
 
-//  Will match any typical local-part of email and then capture domain name
+<!-- Will match any typical local-part of email and then capture domain name -->
 
 ```
 
@@ -120,7 +120,7 @@ answer:  (\w+|\w+.\w+)@(?<domainName>\w+\.com)
 ```c#
 answer: (\w*(?:\d)\w*(?:\W)\w*)|(\w*(?:\W)\w*(?:\d)\w*)
 
-// Either finds one symbol and one number | one number and one symbol, with any number of letters inbetween.
+<!-- Either finds one symbol and one number | one number and one symbol, with any number of letters inbetween. -->
 
 ```
 
@@ -129,7 +129,7 @@ answer: (\w*(?:\d)\w*(?:\W)\w*)|(\w*(?:\W)\w*(?:\d)\w*)
 ```c#
 answer: (\w+|\w+.\w+)@(?<domainName>\w+\.(com|org|net|io|ly))\n
 
-// \n matches a line-feed (newline) character and seemed to work for not matching ".uk".
+<!-- \n matches a line-feed (newline) character and seemed to work for not matching ".uk".-->
 
 ```
 
@@ -138,7 +138,7 @@ answer: (\w+|\w+.\w+)@(?<domainName>\w+\.(com|org|net|io|ly))\n
 ```c#
 answer: [J](\w*\s*\W)*after its release.
 
-// Matches every word, space and symbol until it finds "after its release."
+<!-- Matches every word, space and symbol until it finds "after its release."-->
 
 ```
 
@@ -147,7 +147,7 @@ answer: [J](\w*\s*\W)*after its release.
 ```c#
 answer: (\d+\.\s)
 
-// Will match any set of numbers followed by a . and " ".
+<!-- Will match any set of numbers followed by a . and " ".-->
 
 ```
 
@@ -166,6 +166,6 @@ public class Part
 ```c#
 answer: (?<propName1>\w+)\s*\{\s*get;\s*set;\s*\}(\s*\w*\s*\w*\s*)(?<propName2>\w+)\s*\{\s*get;\s*set;\s*\}
 
-// \s* matches any whitespace character (equal to [\r\n\t\f\v ])
+<!-- \s* matches any whitespace character (equal to [\r\n\t\f\v ])-->
 
 ```
